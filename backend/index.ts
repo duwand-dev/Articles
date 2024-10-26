@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { ArticleRouter } from "./routers/article.router";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -18,6 +19,15 @@ app.use(ArticleRouter);
 app.get("/health", (req, res) => {
   res.send("Express server is working correctly!");
 });
+
+mongoose.connect("mongodb://localhost:27017/article").then(
+  () => {
+    console.log("mongodb connected");
+  },
+  () => {
+    console.log("mongodb connection failed");
+  }
+);
 
 app.listen(port, () => {
   console.info(`Server is running on PORT: ${port}`);
