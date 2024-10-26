@@ -16,10 +16,10 @@ router.post("/addarticle", async (req, res) => {
   try {
     const { article } = req.body;
     const result = await AddArticle(article);
-    res.send({ result: Success });
+    res.status(200).send({ isSuccess: true });
   } catch (err) {
     console.error(err);
-    res.send({ result: Failed });
+    res.status(400).send({ isSuccess: false });
   }
 });
 
@@ -27,20 +27,20 @@ router.post("/deletearticle", async (req, res) => {
   try {
     const { _id } = req.body;
     const result = await DeleteArticle(_id);
-    res.send({ result: Success });
+    res.status(200).send({ isSuccess: true });
   } catch (err) {
     console.error(err);
-    res.send({ result: Failed });
+    res.status(400).send({ isSuccess: false });
   }
 });
 
 router.post("/getallarticles", async (req, res) => {
   try {
     const result = await GetAllArticles();
-    res.send({ result: Success, data: result });
+    res.status(200).send({ isSuccess: true, data: result });
   } catch (err) {
     console.error(err);
-    res.send({ result: Failed });
+    res.status(400).send({ isSuccess: false });
   }
 });
 
@@ -48,10 +48,10 @@ router.post("/updatearticle", async (req, res) => {
   try {
     const { _id, article } = req.body;
     await UpdateArticle(_id, article);
-    res.send({ result: Success });
+    res.status(200).send({ isSuccess: true });
   } catch (err) {
     console.error(err);
-    res.send({ result: Failed });
+    res.status(400).send({ isSuccess: false });
   }
 });
 
