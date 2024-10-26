@@ -1,7 +1,6 @@
+//external imports
 import React from 'react';
-
 import type { DropdownMenuProps } from '@radix-ui/react-dropdown-menu';
-
 import { BlockquotePlugin } from '@udecode/plate-block-quote/react';
 import { insertEmptyElement } from '@udecode/plate-common';
 import {
@@ -10,9 +9,8 @@ import {
   useEditorRef,
 } from '@udecode/plate-common/react';
 import { HEADING_KEYS } from '@udecode/plate-heading';
-
 import { Icons } from '@/components/icons';
-
+import { ImagePlugin, MediaEmbedPlugin } from '@udecode/plate-media/react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,8 +20,9 @@ import {
   DropdownMenuTrigger,
   useOpenState,
 } from './dropdown-menu';
+
+//internal imports
 import { ToolbarButton } from './toolbar';
-import { ImagePlugin, MediaEmbedPlugin } from '@udecode/plate-media/react';
 
 const items = [
   {
@@ -64,67 +63,9 @@ const items = [
         description: 'Media',
         icon: Icons.twitter,
       },
-      // {
-      //   value: 'ul',
-      //   label: 'Bulleted list',
-      //   description: 'Bulleted list',
-      //   icon: Icons.ul,
-      // },
-      // {
-      //   value: 'ol',
-      //   label: 'Numbered list',
-      //   description: 'Numbered list',
-      //   icon: Icons.ol,
-      // },
-      // {
-      //   value: HorizontalRulePlugin.key,
-      //   label: 'Divider',
-      //   description: 'Divider (---)',
-      //   icon: Icons.hr,
-      // },
     ],
     label: 'Basic blocks',
   },
-  // {
-  //   label: 'Media',
-  //   items: [
-  //     {
-  //       value: CodeBlockPlugin.key,
-  //       label: 'Code',
-  //       description: 'Code (```)',
-  //       icon: Icons.codeblock,
-  //     },
-  //     {
-  //       value: ImagePlugin.key,
-  //       label: 'Image',
-  //       description: 'Image',
-  //       icon: Icons.image,
-  //     },
-  //     {
-  //       value: MediaEmbedPlugin.key,
-  //       label: 'Embed',
-  //       description: 'Embed',
-  //       icon: Icons.embed,
-  //     },
-  //     {
-  //       value: ExcalidrawPlugin.key,
-  //       label: 'Excalidraw',
-  //       description: 'Excalidraw',
-  //       icon: Icons.excalidraw,
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'Inline',
-  //   items: [
-  //     {
-  //       value: LinkPlugin.key,
-  //       label: 'Link',
-  //       description: 'Link',
-  //       icon: Icons.link,
-  //     },
-  //   ],
-  // },
 ];
 
 export function InsertDropdownMenu(props: DropdownMenuProps) {
@@ -155,50 +96,6 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
                   className="min-w-[180px]"
                   onSelect={() => {
                     switch (type) {
-                      // case CodeBlockPlugin.key: {
-                      //   insertEmptyCodeBlock(editor);
-                      //
-                      //   break;
-                      // }
-                      // case ImagePlugin.key: {
-                      //   await insertMedia(editor, { type: ImagePlugin.key });
-                      //
-                      //   break;
-                      // }
-                      // case MediaEmbedPlugin.key: {
-                      //   await insertMedia(editor, {
-                      //     type: MediaEmbedPlugin.key,
-                      //   });
-                      //
-                      //   break;
-                      // }
-                      // case 'ul':
-                      // case 'ol': {
-                      //   insertEmptyElement(editor, ParagraphPlugin.key, {
-                      //     select: true,
-                      //     nextBlock: true,
-                      //   });
-                      //
-                      //   if (settingsStore.get.checkedId(IndentListPlugin.key)) {
-                      //     toggleIndentList(editor, {
-                      //       listStyleType: type === 'ul' ? 'disc' : 'decimal',
-                      //     });
-                      //   } else if (settingsStore.get.checkedId('list')) {
-                      //     toggleList(editor, { type });
-                      //   }
-                      //
-                      //   break;
-                      // }
-                      // case TablePlugin.key: {
-                      //   insertTable(editor);
-                      //
-                      //   break;
-                      // }
-                      // case LinkPlugin.key: {
-                      //   triggerFloatingLink(editor, { focused: true });
-                      //
-                      //   break;
-                      // }
                       default: {
                         insertEmptyElement(editor, type, {
                           nextBlock: true,
