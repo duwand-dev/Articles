@@ -1,5 +1,7 @@
+//external imports
 import { ObjectId } from "mongoose";
-import { Failed, Success } from "../costants/constant";
+
+//internal imports
 import { Article } from "../models/Article";
 
 export const AddArticle = async (article: string) => {
@@ -8,7 +10,7 @@ export const AddArticle = async (article: string) => {
     await newArticle.save();
     return Promise.resolve();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return Promise.reject();
   }
 };
@@ -18,7 +20,7 @@ export const DeleteArticle = async (_id: ObjectId) => {
     await Article.deleteOne({ _id });
     return Promise.resolve();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return Promise.reject();
   }
 };
@@ -28,7 +30,7 @@ export const GetAllArticles = async () => {
     const results = await Article.find({});
     return Promise.resolve(results);
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return Promise.reject();
   }
 };
@@ -41,7 +43,7 @@ export const UpdateArticle = async (_id: ObjectId, article: string) => {
     }
     return Promise.resolve();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return Promise.reject();
   }
 };

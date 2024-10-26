@@ -24,8 +24,8 @@ mongoose.connect("mongodb://localhost:27017/article").then(
   () => {
     console.log("mongodb connected");
   },
-  () => {
-    console.log("mongodb connection failed");
+  (error) => {
+    console.error("mongodb connection failed", error);
   }
 );
 

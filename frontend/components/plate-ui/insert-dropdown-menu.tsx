@@ -23,7 +23,7 @@ import {
   useOpenState,
 } from './dropdown-menu';
 import { ToolbarButton } from './toolbar';
-import { ImagePlugin } from '@udecode/plate-media/react';
+import { ImagePlugin, MediaEmbedPlugin } from '@udecode/plate-media/react';
 
 const items = [
   {
@@ -57,6 +57,12 @@ const items = [
         label: 'Image',
         description: 'Image',
         icon: Icons.image,
+      },
+      {
+        value: MediaEmbedPlugin.key,
+        label: 'Media',
+        description: 'Media',
+        icon: Icons.twitter,
       },
       // {
       //   value: 'ul',

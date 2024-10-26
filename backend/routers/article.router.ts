@@ -1,4 +1,7 @@
+//external imports
 import { Router } from "express";
+
+//internal imports
 import {
   AddArticle,
   DeleteArticle,
@@ -15,7 +18,7 @@ router.post("/addarticle", async (req, res) => {
     const result = await AddArticle(article);
     res.send({ result: Success });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.send({ result: Failed });
   }
 });
@@ -26,7 +29,7 @@ router.post("/deletearticle", async (req, res) => {
     const result = await DeleteArticle(_id);
     res.send({ result: Success });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.send({ result: Failed });
   }
 });
@@ -36,7 +39,7 @@ router.post("/getallarticles", async (req, res) => {
     const result = await GetAllArticles();
     res.send({ result: Success, data: result });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.send({ result: Failed });
   }
 });
@@ -47,7 +50,7 @@ router.post("/updatearticle", async (req, res) => {
     await UpdateArticle(_id, article);
     res.send({ result: Success });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.send({ result: Failed });
   }
 });

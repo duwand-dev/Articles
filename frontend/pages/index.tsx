@@ -10,16 +10,13 @@ import { Article } from "../types/types";
 
 export default () => {
   const [articles, setArticles] = useState([]);
-  const router = useRouter();
-
 
   useEffect(() => {
     axios.post(`${serverURL}/getallarticles`).then((res) => {
       const articles = res.data.data;
       setArticles(articles)
-      console.log(articles);
     }).catch((err) => {
-      console.log(err)
+      console.error(err)
     })
   }, [])
 
@@ -45,7 +42,8 @@ export default () => {
                   <Link href={{
                     pathname: '/Editor',
                     query: { mode: 1, _id: article._id, article: article.article } // the data
-                  }}>{article.article}</Link></th>
+                  }}>{article.article.slice(article.article.indexOf("text") + 7,
+                    article.article.slice(article.article.indexOf("text") + 8, article.article.length).indexOf('"') + article.article.indexOf("text") + 7)} ...</Link></th>
               </tr>
             )
           })}
