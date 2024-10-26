@@ -23,6 +23,7 @@ import {
   useOpenState,
 } from './dropdown-menu';
 import { ToolbarButton } from './toolbar';
+import { ImagePlugin } from '@udecode/plate-media/react';
 
 const items = [
   {
@@ -34,12 +35,6 @@ const items = [
         value: ParagraphPlugin.key,
       },
       {
-        description: 'Heading 1',
-        icon: Icons.h1,
-        label: 'Heading 1',
-        value: HEADING_KEYS.h1,
-      },
-      {
         description: 'Heading 2',
         icon: Icons.h2,
         label: 'Heading 2',
@@ -47,22 +42,22 @@ const items = [
       },
       {
         description: 'Heading 3',
-        icon: Icons.h3,
+        icon: Icons.h2,
         label: 'Heading 3',
         value: HEADING_KEYS.h3,
       },
       {
-        description: 'Quote (⌘+⇧+.)',
-        icon: Icons.blockquote,
-        label: 'Quote',
-        value: BlockquotePlugin.key,
+        description: 'Heading 4',
+        icon: Icons.h4,
+        label: 'Heading 4',
+        value: HEADING_KEYS.h4,
       },
-      // {
-      //   value: TablePlugin.key,
-      //   label: 'Table',
-      //   description: 'Table',
-      //   icon: Icons.table,
-      // },
+      {
+        value: ImagePlugin.key,
+        label: 'Image',
+        description: 'Image',
+        icon: Icons.image,
+      },
       // {
       //   value: 'ul',
       //   label: 'Bulleted list',

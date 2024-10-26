@@ -34,12 +34,6 @@ const items = [
     value: ParagraphPlugin.key,
   },
   {
-    description: 'Heading 1',
-    icon: Icons.h1,
-    label: 'Heading 1',
-    value: HEADING_KEYS.h1,
-  },
-  {
     description: 'Heading 2',
     icon: Icons.h2,
     label: 'Heading 2',
@@ -52,22 +46,10 @@ const items = [
     value: HEADING_KEYS.h3,
   },
   {
-    description: 'Quote (⌘+⇧+.)',
-    icon: Icons.blockquote,
-    label: 'Quote',
-    value: BlockquotePlugin.key,
-  },
-  {
-    description: 'Bulleted list',
-    icon: Icons.ul,
-    label: 'Bulleted list',
-    value: ListStyleType.Disc,
-  },
-  {
-    description: 'Numbered list',
-    icon: Icons.ol,
-    label: 'Numbered list',
-    value: ListStyleType.Decimal,
+    description: 'Heading 4',
+    icon: Icons.h4,
+    label: 'Heading 4',
+    value: HEADING_KEYS.h4,
   },
 ];
 
