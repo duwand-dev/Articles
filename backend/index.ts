@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { ArticleRouter } from "./routers/article.router";
 import mongoose from "mongoose";
-import { mongoURL } from "./config";
 
 dotenv.config();
 
@@ -21,6 +20,7 @@ app.get("/health", (req, res) => {
   res.send("Express server is working correctly!");
 });
 
+const mongoURL = process.env.mongoURL || "mongodb://localhost:27017/article";
 mongoose.connect(mongoURL).then(
   () => {
     console.log("mongodb connected");
